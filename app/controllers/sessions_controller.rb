@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def home
+  end
+
 
   def new
   end
@@ -20,6 +23,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path, notice: "Log out successful!"
   end
+
+  #def home
+  #end
+
 
    private
   #def user_params

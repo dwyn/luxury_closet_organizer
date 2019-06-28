@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 #this method instantiates an empty new user object and renders the sign_up form
 #once a user is saved, they are redirected to the root url
   #code...
-
+#loading the signup form
 def new
   @user = User.new
 end
-
+#signup
 def create
   @user = User.new(user_params)
   if @user.save
