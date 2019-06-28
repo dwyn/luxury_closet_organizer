@@ -6,28 +6,30 @@ class UsersController < ApplicationController
 def new
   @user = User.new
 end
+
 #signup
 def create
   @user = User.new(user_params)
   if @user.save
+    #login the user
     session[:user_id] = @user.id #stores @user.id in a cookie session
     redirect_to root_path
     #flash message to welcome new users
-    notice = "Welcome to your Luxury Closet Organizer!"
+    #notice = "Welcome to your Luxury Closet Organizer!"
   else
-    render "new"
+    render :new
   end
 end
 
-def show
-end
+#def show
+#end
 
-def update
-end
+#def update
+#end
 
 private
 
 def user_params
-  params.require(:user).permit(:name, :email, :password)
+  params.require(:user).permit( :email, :password)
 end
 end

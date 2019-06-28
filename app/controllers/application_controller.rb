@@ -19,7 +19,7 @@ private
   def authenticate_user!
     redirect_to login_path unless current_user
   end
-  
+
 
   def logged_in?
     !!session[:user_id]

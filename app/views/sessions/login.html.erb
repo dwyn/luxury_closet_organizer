@@ -1,0 +1,29 @@
+<h1>Log In Here</h1>
+
+
+<%=  link_to "Sign up", signup_path %>
+
+OR
+
+<%= link_to "Log in", login_path %>
+
+OR
+
+<%= link_to "Sign in Through Facebook", '/auth/facebook' %>
+
+
+<%= flash[:error] %>
+
+<%= form_for @user, url: '/login' do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Log In" %>
+
+<% end %>
