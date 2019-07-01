@@ -13,7 +13,7 @@ def create
   if @user.save
     #login the user
     session[:user_id] = @user.id #stores @user.id in a cookie session
-    redirect_to root_path
+    redirect_to shoes_path
     #flash message to welcome new users
     #notice = "Welcome to your Luxury Closet Organizer!"
   else
@@ -21,15 +21,13 @@ def create
   end
 end
 
-#def show
-#end
 
-#def update
-#end
 
 private
 
 def user_params
   params.require(:user).permit( :email, :password)
 end
+
+
 end

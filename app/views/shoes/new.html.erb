@@ -1,0 +1,40 @@
+<h1>New(Create) Shoe Entry Form goes here</h1>
+
+
+<%= form_for(@shoe) do |f| %>
+
+  
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+
+
+  <%= f.label :style %>
+  <%= f.text_field :style %>
+
+  <br><br>
+
+  <%= f.label :designer_id, "Select a Designer" %>
+  <%= f.collection_select :designer_id, Designer.all, :id, :name, prompt: true %>
+  <br><br>
+
+  <% if !params[:designer_id] %>
+    <h4>Or add a new designer:</h4>
+
+    <%= f.fields_for :designer do |v|%>
+        <%= v.label :name %>
+        <%= v.text_field :name %>
+    <% end %>
+  <% end %>
+
+  <br><br>
+  <%= f.submit %>
+
+<% end %>
