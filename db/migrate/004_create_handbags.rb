@@ -1,14 +1,14 @@
-class CreateHandbags < ActiveRecord::Migration[4.2]
+class CreateHandbags < ActiveRecord::Migration[5.2]
   def change
     create_table :handbags do |t|
       t.string :brand
       t.string :name
       t.string :style
-      t.string :url
       t.string :color
-      t.integer :user_id
-      t.integer :designer_id
-      t.timestamps null: false
+      t.string :url
+      t.belongs_to :user, foreign_key: true
+      t.belongs_to :designer, foreign_key: true
+      t.timestamps 
     end
   end
 end

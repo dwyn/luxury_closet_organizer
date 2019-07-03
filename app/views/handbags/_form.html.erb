@@ -1,0 +1,39 @@
+<%= form_for(@handbag) do |f| %>
+
+
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+
+
+  <%= f.label :style %>
+  <%= f.text_field :style %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+
+  <%= f.fields_for :designer, @handbag.build_designer do |designer_fields|%>
+        <%= designer_fields.label :designer_name %>
+        <%= designer_fields.text_field :name %>
+    <% end %>
+
+
+  <br><br>
+
+
+
+
+
+
+  <br><br>
+  <%= f.submit %>
+
+<% end %>

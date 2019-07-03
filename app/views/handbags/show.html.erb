@@ -1,0 +1,12 @@
+<h1>Handbags Show Page</h1>
+
+
+
+<p> <%= @handbag.name %> is a <%= @handbag.brand%> and is  years old. </p>
+
+Show image of Handbag and URL<br><br><br>
+
+<% if @handbag.user == current_user %>
+  
+  <%= link_to "Delete Handbag", handbag_path(@handbag), method: :delete  %>
+<% end %>

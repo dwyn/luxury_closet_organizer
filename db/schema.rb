@@ -14,41 +14,47 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "designers", force: :cascade do |t|
     t.string "name"
-    t.date "birth_date"
     t.string "birth_country"
-    t.string "password_digest"
     t.integer "user_id"
     t.integer "shoe_id"
+    t.integer "handbag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["handbag_id"], name: "index_designers_on_handbag_id"
+    t.index ["shoe_id"], name: "index_designers_on_shoe_id"
+    t.index ["user_id"], name: "index_designers_on_user_id"
   end
 
   create_table "handbags", force: :cascade do |t|
     t.string "brand"
     t.string "name"
     t.string "style"
-    t.string "url"
     t.string "color"
+    t.string "url"
     t.integer "user_id"
     t.integer "designer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["designer_id"], name: "index_handbags_on_designer_id"
+    t.index ["user_id"], name: "index_handbags_on_user_id"
   end
 
   create_table "shoes", force: :cascade do |t|
     t.string "name"
     t.string "brand"
     t.string "style"
-    t.string "url"
     t.string "color"
+    t.string "url"
     t.integer "user_id"
     t.integer "designer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["designer_id"], name: "index_shoes_on_designer_id"
+    t.index ["user_id"], name: "index_shoes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false

@@ -1,9 +1,21 @@
-<%= link_to "Your Shoe Entries", shoes_path %>
-<%= link_to "Your Handbag Entries", handbags_path %>
+
+Here I want to show all of the users shoes
+
+<h1>All the Shoes!</h1>
+
+<%= form_tag("/shoes", method: "get") do %>
+  <%= label_tag(:brand, "Enter the brand you want to see") %>
+  <%= text_field_tag(:brand) %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 
+<%= link_to "New Handbag Entry", 'handbags/new' %><br>
 
-<h1>All Your Shoes!</h1>
 
 <%= link_to "New Shoe Entry", 'shoes/new' %><br>
-<%= link_to "Log Out", logout_path, method: :delete %>
+
+
+
+
+<h3>Shoes:</h3>

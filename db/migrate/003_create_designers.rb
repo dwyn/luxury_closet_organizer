@@ -1,13 +1,12 @@
-class CreateDesigners < ActiveRecord::Migration[4.2]
+class CreateDesigners < ActiveRecord::Migration[5.2]
   def change
     create_table :designers do |t|
       t.string :name
-      t.date :birth_date
       t.string :birth_country
-      t.string :password_digest
-      t.integer :user_id
-      t.integer :shoe_id
-      t.timestamps null: false
+      t.belongs_to :user, foreign_key: true
+      t.belongs_to :shoe, foreign_key: true
+      t.belongs_to :handbag, foreign_key: true
+      t.timestamps
     end
   end
 end

@@ -1,0 +1,10 @@
+<h1>One Shoe Entry </h1>
+
+<p> <%= @shoe.name %> is a <%= @shoe.brand%> and is <%= @shoe.designer_id %> years old. </p>
+
+Show image of shoe and URL<br><br><br>
+
+<% if @shoe.user == current_user %>
+  <%= link_to "Edit Shoe", edit_shoe_path(@shoe) %>
+  <%= link_to "Delete Shoe", shoe_path(@shoe), method: :delete  %>
+<% end %>

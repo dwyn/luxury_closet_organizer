@@ -1,6 +1,6 @@
 <%= form_for(@shoe) do |f| %>
 
-  <%= render partial: 'layouts/errors', locals: {object: @shoe} %>
+
 
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -16,10 +16,13 @@
   <%= f.label :style %>
   <%= f.text_field :style %>
 
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
   <br><br>
 
   <%= f.label :designer_id, "Select a Designer" %>
-  <%= f.collection_select :designer_id, Designer.all, :id, :name, prompt: true %>
+  <%= f.select(:designer_id, [ :name]) %>
   <br><br>
 
   <% if !params[:designer_id] %>
