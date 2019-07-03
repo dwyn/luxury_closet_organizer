@@ -1,21 +1,20 @@
 
-Here I want to show all of the users shoes
 
-<h1>All the Shoes!</h1>
+<h1>All the Shoes</h1>
 
-<%= form_tag("/shoes", method: "get") do %>
-  <%= label_tag(:brand, "Enter the brand you want to see") %>
-  <%= text_field_tag(:brand) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-
-<%= link_to "New Handbag Entry", 'handbags/new' %><br>
 
 
 <%= link_to "New Shoe Entry", 'shoes/new' %><br>
 
 
+<% @shoes.each do |shoe| %>
 
 
-<h3>Shoes:</h3>
+  <%= link_to "Create New Shoe", new_shoe_path(shoe.id)%>
+
+  <%= link_to "Your Shoe Entries", shoes_path %>
+         <%= link_to "Your Handbag Entries", handbags_path %>
+  <div>
+    <p><%= shoe.style%></p>
+  </div>
+<% end %>

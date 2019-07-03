@@ -9,7 +9,7 @@ class HandbagsController < ApplicationController
   def new
     @handbag = Handbag.new
     #render :new
-    @handbag.build_city
+    #@handbag.build_city
   end
 
   def create

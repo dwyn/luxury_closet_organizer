@@ -6,7 +6,7 @@
 
 
 
-    <%= f.label :username %>
+    <%= f.label :username %><br>
   <%= f.text_field :username %>
 
     <%= f.label :email %><br />
@@ -17,3 +17,6 @@
     <%= f.password_field :password %>
   <%= f.submit "Signup" %>
 <% end %>
+
+<%= link_to "Your Shoe Entries", shoes_path %>
+     <%= link_to "Your Handbag Entries", handbags_path %>

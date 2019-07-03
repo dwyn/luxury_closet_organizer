@@ -11,6 +11,7 @@ class ShoesController < ApplicationController
   def create
     #@shoe = current_user.shoes.build(shoe_params)
     @shoe = Shoe.create(shoe_params)
+    @shoe.user_id = session[:user_id]
     #byebug
     if @shoe.save
       redirect_to shoe_path(@shoe)
@@ -28,7 +29,7 @@ end
 
   def show
     #set_shoe
-    #@shoe = Shoe.find_by(id: params[:id])
+    @shoe = Shoe.find( params[:id])
   end
 
   #def edit
