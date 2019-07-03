@@ -1,7 +1,7 @@
 class Designer < ApplicationRecord
-  has_many :shoes
-  has_many :users, through: :shoes
-  has_many :handbags
+  has_many :shoes, through: :users
+
+  has_many :handbags, through: :users
 
 
 

@@ -13,7 +13,7 @@ def create
   if @user.save
     #login the user
     session[:user_id] = @user.id #stores @user.id in a cookie session
-    redirect_to shoes_path
+    redirect_to user_path(@user)
     #flash message to welcome new users
     #notice = "Welcome to your Luxury Closet Organizer!"
   else
@@ -26,7 +26,7 @@ end
 private
 
 def user_params
-  params.require(:user).permit( :email, :password)
+  params.require(:user).permit( :username, :email, :password)
 end
 
 

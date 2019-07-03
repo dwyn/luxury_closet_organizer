@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   #omniauth callback
  #get '/auth/facebook/callback' =>  'sessions#fbcreate'
 
- resources :users
+ 
  resources :sessions
-  #resources :shoes
-  resources :shoes, only:[:new, :create, :show, :index]
+  resources :shoes
   resources :handbags
+  resources :users
 
 
   #omniauth callback
