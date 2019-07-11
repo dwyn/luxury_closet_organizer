@@ -21,13 +21,10 @@ def create
   end
 end
 
-
 def show
-    @user = User.find_by_id(params[:id])
-    redirect_to '/' if !@user
-  end
-
-
+  @user = User.find_by_id(params[:id])
+redirect_to '/' if !@user
+end
 
 private
 

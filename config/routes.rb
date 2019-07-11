@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   #omniauth callback
  #get '/auth/facebook/callback' =>  'sessions#fbcreate'
 
-
+ #get '/shoes/:id' => 'shows#show', as: 'shoe'
+ #resources :sessions
   resources :shoes
   resources :handbags
   resources :users

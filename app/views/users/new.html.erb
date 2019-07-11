@@ -6,8 +6,13 @@
 
 
 
+<<<<<<< HEAD
   <%= f.label :username %>
   <%= f.text_field :username %><br><br>
+=======
+    <%= f.label :username %><br>
+  <%= f.text_field :username %>
+>>>>>>> 2aca31f01054cdc018eff65488a3543e48f57a8a
 
     <%= f.label :email %>
     <%= f.email_field :email %><br><br>
@@ -17,3 +22,6 @@
     <%= f.password_field :password %><br>
   <%= f.submit "Signup" %>
 <% end %>
+
+<%= link_to "Your Shoe Entries", shoes_path %>
+     <%= link_to "Your Handbag Entries", handbags_path %>
