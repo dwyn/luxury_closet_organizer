@@ -3,19 +3,19 @@ Here I want to show all of the users shoes
 
 <h1>All the Shoes!</h1>
 
-<%= form_tag("/shoes", method: "get") do %>
-  <%= label_tag(:brand, "Enter the brand you want to see") %>
-  <%= text_field_tag(:brand) %>
-  <%= submit_tag("Search") %>
+
+<ul>
+<% @shoes.each do |shoe| %>
+<li>
+  <strong><%= shoe.name %></strong> -
+  <%=shoe.brand %> miles  -
+  <%=shoe.designer %> - added by: <%= shoe.user.username %> |
+  <%= link_to "Your Shoe Entries", shoes_path(shoe) %> |
+  <%= link_to "Your Handbag Entries", handbags_path(handbag) %>|
+
+
+
+</li>
+
 <% end %>
-
-
-<%= link_to "New Handbag Entry", 'handbags/new' %><br>
-
-
-<%= link_to "New Shoe Entry", 'shoes/new' %><br>
-
-
-
-
-<h3>Shoes:</h3>
+</ul>

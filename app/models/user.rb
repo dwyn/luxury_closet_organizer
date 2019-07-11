@@ -6,7 +6,9 @@ class User < ApplicationRecord
   has_many :handbags, through: :designers
 
   #validates :email,  presence: true, uniqueness: true
+  #valiates :username, uniqueness: true, presence: true
   has_secure_password
+
 
 
 

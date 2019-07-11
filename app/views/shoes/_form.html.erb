@@ -1,4 +1,6 @@
-<%= form_for(@shoe) do |f| %>
+<form class="col-lg-12">
+<h1>Add new Shoe</h1>
+<%= form_for (@shoe) do |f| %>
 
 
 
@@ -19,22 +21,17 @@
   <%= f.label :url %>
   <%= f.text_field :url %>
 
-  <br><br>
-
-  <%= f.label :designer_id, "Select a Designer" %>
-  <%= f.select(:designer_id, [ :name]) %>
-  <br><br>
-
-  <% if !params[:designer_id] %>
-    <h4>Or add a new designer:</h4>
-
-    <%= f.fields_for :designer do |v|%>
-        <%= v.label :name %>
-        <%= v.text_field :name %>
-    <% end %>
-  <% end %>
+  <%= f.label :designer %>
+  <%= f.text_field :designer %>
 
   <br><br>
-  <%= f.submit %>
+
+
+
+  <br><br>
+
+
+  <%= f.submit%>
 
 <% end %>
+</form>

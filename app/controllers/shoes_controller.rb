@@ -2,47 +2,35 @@ class ShoesController < ApplicationController
   #before_action :set_shoe, only:[:show, :edit, :update, :destroy]
   #this class method atutomatically calls the set_shoe method before the methods show, edit, update, and destroy.
 
+  def index
+   @shoes = Shoe.all
+  end
+
+  def show
+  @shoe = Shoe.find(params[:id])
+  end
+
+
   def new
     @shoe = Shoe.new
-    #render :new
   end
 
 
   def create
-    #@shoe = current_user.shoes.build(shoe_params)
-    @shoe = Shoe.create(shoe_params)
-    #byebug
+    byebug
+    @shoe = current_user.shoes.build(shoe_params)
     if @shoe.save
       redirect_to shoe_path(@shoe)
     else
       render :new
 
-        #redirect_to shoes_path
   end
 end
 
-  def index
-    @shoes = Shoe.all
-    #@shoes = Shoe.search(params[:search])
-  end
+private
 
-  def show
-    #set_shoe
-    #@shoe = Shoe.find_by(id: params[:id])
-  end
 
-  #def edit
-    #set_shoe
-  #end
 
-  #def update
-    #set_shoe
-   #if @shoe.update(shoe_params)
-     #redirect_to shoe_path(@shoe)
-   #else
-     #render :edit
-   #end
-  #end
 
   #def destroy
     #set_shoe
@@ -50,7 +38,8 @@ end
     #redirect_to shoes_path
   #end
 
-  private
+
+
 
   # this method calls the Shoe.find method to retrieve the shoe with an params corresponding to the params passed to the controller.
   #def set_shoe
@@ -61,8 +50,9 @@ end
   #end
 #end
 
+  #strong params
   def shoe_params
-      params.require(:shoe).permit(:name, :brand, :url, :color, :style, :designer_id)
+      params.require(:shoe).permit(:name, :brand, :url, :color, :style, designer_attributes:[:name])
   end
 
 end
